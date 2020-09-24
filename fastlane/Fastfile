@@ -1,0 +1,67 @@
+default_platform :ios
+skip_docs
+opt_out_usage
+
+$scheme = 'PocketPurchasesExample'
+$podspec = 'PocketPurchases.podspec'
+$workspace = './Example/PocketPurchases.xcworkspace'
+$specsrepo = 'git@github.com:pocket-ninja/specs.git'
+
+before_all do |lane, options|
+  if options[:skip_checks]
+    UI.message "Skipping git status checks"
+  else
+    ensure_git_status_clean
+  end
+end
+
+lane :patch do
+  update(type: "patch")
+  submit
+end
+
+lane :minor do
+  update(type: "minor")
+  submit
+end
+
+lane :major do
+  update(type: "major")
+  submit
+end
+
+lane :submit
+  push_to_git_remote(
+    local_branch: "master",
+    remote_branch: "master",
+    remote: "origin"
+  )
+
+  pod_push(
+    path: $podspec,
+    repo: $specsrepo,
+    allow_warnings: true
+  )
+end
+
+private_lane :update do |options|
+  scan(
+    workspace: $workspace,
+    scheme: $scheme
+  )
+
+  pod_lib_lint(
+    allow_warnings: true
+  )
+
+  type = options[:type]
+
+  if type == "none"
+    UI.message("No version type found")
+    return
+  end
+
+  version = version_bump_podspec(path: $podspec, bump_type: type)
+  git_commit(path: $podspec, message: "Updating podspec")
+  add_git_tag(tag: version)
+end

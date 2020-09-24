@@ -1,0 +1,40 @@
+PODS:
+  - PocketPurchases (0.1.0):
+    - RxRelay
+    - RxSwift (~> 5)
+    - SwiftyStoreKit (~> 0.16)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SwiftFormat/CLI (0.46.3)
+  - SwiftLint (0.40.3)
+  - SwiftyStoreKit (0.16.1)
+
+DEPENDENCIES:
+  - PocketPurchases (from `../`)
+  - SwiftFormat/CLI
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - RxRelay
+    - RxSwift
+    - SwiftFormat
+    - SwiftLint
+    - SwiftyStoreKit
+
+EXTERNAL SOURCES:
+  PocketPurchases:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PocketPurchases: 5cee90b11153d3524761a9a3cede4b2decd3893e
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SwiftFormat: b639417da9e024b9e782f917bc9a080cf75bcb37
+  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+
+PODFILE CHECKSUM: ed262a2ca81047c660a8018e7c80ece141a99eb0
+
+COCOAPODS: 1.9.3

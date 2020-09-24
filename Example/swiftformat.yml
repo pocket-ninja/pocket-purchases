@@ -1,0 +1,5 @@
+--disable unusedArguments
+--disable redundantRawValues
+--disable redundantSelf
+--disable trailingCommas
+--disable trailingClosures

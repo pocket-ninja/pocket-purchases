@@ -1,0 +1,28 @@
+disabled_rules:
+  - line_length
+  - type_body_length
+  - identifier_name
+  - type_name
+  - weak_delegate
+  - redundant_string_enum_value
+  - notification_center_detachment
+  - unused_closure_parameter
+  - function_parameter_count
+  - cyclomatic_complexity
+  - shorthand_operator
+  - large_tuple
+  - trailing_whitespace
+  - trailing_comma
+  - function_body_length
+  - file_length
+  - opening_brace
+
+force_cast: warning
+
+custom_rules:
+  record_mode_prohibited:
+    included: .*Test[s]?\.swift
+    name: Record Mode Prohibited
+    regex: (record|recordMode)\s*=\s*true
+    message: "Set record mode to false"
+    severity: warning
