@@ -30,7 +30,7 @@ lane :major do
   submit
 end
 
-lane :submit
+lane :submit do
   push_to_git_remote(
     local_branch: "master",
     remote_branch: "master",
