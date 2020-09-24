@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PocketPurchases'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'The Pocket Ninja Purchases client.'
 
   s.homepage         = 'https://github.com/pocket-ninja/pocket-purchases'
