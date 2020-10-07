@@ -1,5 +1,5 @@
 PODS:
-  - PocketPurchases (0.1.0):
+  - PocketPurchases (0.1.2):
     - RxRelay
     - RxSwift (~> 5)
     - SwiftyStoreKit (~> 0.16)
@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PocketPurchases: 5cee90b11153d3524761a9a3cede4b2decd3893e
+  PocketPurchases: 2e8c8c88e6976eb4e7c5c48629be872af1bfca80
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftFormat: b639417da9e024b9e782f917bc9a080cf75bcb37
