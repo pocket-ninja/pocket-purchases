@@ -33,6 +33,15 @@ public struct PurchaseProduct: Identifiable {
     }
 }
 
+public extension PurchaseProduct.Price {
+    var string: String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = locale
+        return formatter.string(from: price)
+    }
+}
+
 extension PurchaseProduct {
     init(product: SKProduct) {
         self.id = product.productIdentifier
