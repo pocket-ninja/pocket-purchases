@@ -9,10 +9,19 @@ public struct PurchaseProduct: Identifiable {
     public struct Price {
         public var price: NSDecimalNumber
         public var locale: Locale
+
+        public init(price: NSDecimalNumber, locale: Locale) {
+            self.price = price
+            self.locale = locale
+        }
     }
 
     public struct Discount {
         public var trialDays: Int
+
+        public init(trialDays: Int) {
+            self.trialDays = trialDays
+        }
     }
 
     public let id: String
@@ -33,8 +42,8 @@ public struct PurchaseProduct: Identifiable {
     }
 }
 
-public extension PurchaseProduct.Price {
-    var string: String? {
+extension PurchaseProduct.Price {
+    public var string: String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = locale
