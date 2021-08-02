@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'git@github.com:pocket-ninja/pocket-purchases.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '12.0'
+  s.watchos.deployment_target = '6.0'
   s.swift_version = '5.3'
   s.static_framework = true
 
