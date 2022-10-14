@@ -1,13 +1,8 @@
 PODS:
-  - PocketPurchases (0.1.4):
-    - RxRelay
-    - RxSwift (~> 5)
-    - SwiftyStoreKit (~> 0.16)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
-  - SwiftFormat/CLI (0.46.3)
-  - SwiftLint (0.40.3)
+  - PocketPurchases (0.1.5):
+    - SwiftyStoreKit (~> 0.16.1)
+  - SwiftFormat/CLI (0.50.2)
+  - SwiftLint (0.49.1)
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
@@ -17,8 +12,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - RxRelay
-    - RxSwift
     - SwiftFormat
     - SwiftLint
     - SwiftyStoreKit
@@ -28,11 +21,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PocketPurchases: c4fd7b64f0ce081d8f876c13c99614b03840e2e5
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  SwiftFormat: b639417da9e024b9e782f917bc9a080cf75bcb37
-  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  PocketPurchases: 8d1dd915ffdb06094a66db45b8a3ef0dc472d590
+  SwiftFormat: 710117321c55c82675c0dc03055128efbb13c38f
+  SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
 PODFILE CHECKSUM: 0adf44bad2d7cea6b404e9a144a1c043507dafda

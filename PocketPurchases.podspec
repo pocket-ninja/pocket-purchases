@@ -8,14 +8,12 @@ Pod::Spec.new do |s|
   s.author           = { 'egor mihneivch' => 'cursed.elfenlaid@gmail.com' }
   s.source           = { :git => 'git@github.com:pocket-ninja/pocket-purchases.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
   s.watchos.deployment_target = '6.2'
-  s.swift_version = '5.3'
+  s.swift_version = '5.5'
   s.static_framework = true
 
   s.source_files = 'PocketPurchases/Sources/**/*'
 
-  s.dependency 'SwiftyStoreKit', '~> 0.16'
-  s.dependency 'RxSwift', '~> 5'
-  s.dependency 'RxRelay'
+  s.dependency 'SwiftyStoreKit', '~> 0.16.1'
 end

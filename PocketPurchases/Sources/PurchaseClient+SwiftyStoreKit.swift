@@ -4,13 +4,12 @@
 
 #if os(iOS)
 
+    import Combine
     import Foundation
-    import RxRelay
-    import RxSwift
     import SwiftyStoreKit
 
-    extension PurchasesClient {
-        public static func swiftyStoreKit(storeSecret: @escaping () -> String) -> PurchasesClient {
+    public extension PurchasesClient {
+        static func swiftyStoreKit(storeSecret: @escaping () -> String) -> PurchasesClient {
             let service = SwiftyPurchasesService(storeSecret: storeSecret)
 
             return PurchasesClient(
@@ -36,12 +35,14 @@
 
             set {
                 userDefaults.purchasesState = newValue
-                delegateRelay.accept(.didChangeState(newValue))
+                delegateSubject.send(.didChangeState(newValue))
             }
         }
 
-        var delegate: Observable<PurchasesClient.DelegateEvent> {
-            delegateRelay.asObservable().subscribeOn(MainScheduler.instance)
+        var delegate: AnyPublisher<PurchasesClient.DelegateEvent, Never> {
+            delegateSubject
+                .receive(on: DispatchQueue.main)
+                .eraseToAnyPublisher()
         }
 
         init(storeSecret: @escaping () -> String) {
@@ -121,7 +122,7 @@
                 state.merge(restoredState, uniquingKeysWith: { _, rhs in rhs })
 
                 completionQueue.async {
-                    self.delegateRelay.accept(.didRestoreProducts(restoredIds))
+                    self.delegateSubject.send(.didRestoreProducts(restoredIds))
                     completion(.success(restoredIds))
                 }
             } else {
@@ -158,7 +159,7 @@
                         quantity: details.quantity,
                         transactionIdentifier: details.transaction.transactionIdentifier
                     )
-                    self.delegateRelay.accept(.didPurchaseProduct(transaction))
+                    self.delegateSubject.send(.didPurchaseProduct(transaction))
                     completion(.success(transaction))
 
                 case let .error(error):
@@ -221,13 +222,13 @@
                 }
 
             state.merge(completedState, uniquingKeysWith: { _, rhs in rhs })
-            delegateRelay.accept(.didProceedProducts(completedState.map { $0.0 }))
+            delegateSubject.send(.didProceedProducts(completedState.map { $0.0 }))
         }
 
         private let storeSecret: () -> String
         private var cache: [PurchaseProduct.ID: PurchaseProduct] = [:]
         private var willEnterForegroundNotificationCancellable: Any?
-        private let delegateRelay = PublishRelay<PurchasesClient.DelegateEvent>()
+        private let delegateSubject = PassthroughSubject<PurchasesClient.DelegateEvent, Never>()
     }
 
     private extension UserDefaults {

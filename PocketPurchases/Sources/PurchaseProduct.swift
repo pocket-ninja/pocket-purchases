@@ -42,8 +42,8 @@ public struct PurchaseProduct: Identifiable {
     }
 }
 
-extension PurchaseProduct.Price {
-    public var string: String? {
+public extension PurchaseProduct.Price {
+    var string: String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = locale

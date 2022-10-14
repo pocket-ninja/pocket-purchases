@@ -2,8 +2,8 @@
 //  Copyright © 2020 pocket-ninja. All rights reserved.
 //
 
+import Combine
 import Foundation
-import RxSwift
 import StoreKit
 
 public struct PurchasesClient {
@@ -29,7 +29,7 @@ public struct PurchasesClient {
     }
 
     public var state: () -> PurchasesState
-    public var delegate: () -> Observable<DelegateEvent>
+    public var delegate: () -> AnyPublisher<DelegateEvent, Never>
     public var setup: () -> Void
     public var loadProducts: ([PurchaseProduct.ID], @escaping (Result<[PurchaseProduct], Error>) -> Void) -> Void
     public var restorePurhcases: (@escaping (Result<[PurchaseProduct.ID], RestoreError>) -> Void) -> Void
@@ -37,7 +37,7 @@ public struct PurchasesClient {
 
     public init(
         state: @escaping () -> PurchasesState,
-        delegate: @escaping () -> Observable<DelegateEvent>,
+        delegate: @escaping () -> AnyPublisher<DelegateEvent, Never>,
         setup: @escaping () -> Void,
         loadProducts: @escaping ([PurchaseProduct.ID], @escaping (Result<[PurchaseProduct], Error>) -> Void) -> Void,
         restorePurhcases: @escaping (@escaping (Result<[PurchaseProduct.ID], RestoreError>) -> Void) -> Void,
@@ -52,15 +52,15 @@ public struct PurchasesClient {
     }
 }
 
-extension PurchasesClient {
-    public func loadProducts(
+public extension PurchasesClient {
+    func loadProducts(
         with identifiers: [PurchaseProduct.ID],
         then completion: @escaping (Result<[PurchaseProduct], Error>) -> Void
     ) {
         loadProducts(identifiers, completion)
     }
 
-    public func purchaseProduct(
+    func purchaseProduct(
         with id: PurchaseProduct.ID,
         then completion: @escaping (Result<PurchaseTransaction, PurchasesClient.PurchaseError>) -> Void
     ) {
