@@ -50,10 +50,6 @@ private_lane :update do |options|
     scheme: $scheme
   )
 
-  pod_lib_lint(
-    allow_warnings: true
-  )
-
   type = options[:type]
 
   if type == "none"
