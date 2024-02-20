@@ -1,8 +1,8 @@
 PODS:
-  - PocketPurchases (0.1.5):
+  - PocketPurchases (0.1.6):
     - SwiftyStoreKit (~> 0.16.1)
-  - SwiftFormat/CLI (0.50.2)
-  - SwiftLint (0.49.1)
+  - SwiftFormat/CLI (0.53.2)
+  - SwiftLint (0.54.0)
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - SwiftFormat
     - SwiftLint
     - SwiftyStoreKit
@@ -21,11 +21,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PocketPurchases: 8d1dd915ffdb06094a66db45b8a3ef0dc472d590
-  SwiftFormat: 710117321c55c82675c0dc03055128efbb13c38f
-  SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
+  PocketPurchases: 48c29870aadff0e06e19c5d50cba9ad9c7c39755
+  SwiftFormat: 19cf302c4ecf4f8c64d394d57589beb145debed5
+  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 0adf44bad2d7cea6b404e9a144a1c043507dafda
+PODFILE CHECKSUM: 14f24d9123da99d267bc73ccaa852ecc47c81ccb
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.15.2
